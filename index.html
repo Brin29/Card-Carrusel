@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Carrusel Practica</title>
+</head>
+<body>
+    <div class="gallery-wrap">
+        <span id="backBtn" >PREV </span>
+        <div class="gallery">
+            <div>
+                <span>
+                    <img src="./img/avatar-1.png" alt="">
+                </span>
+                <span>
+                    <img src="./img/avatar-2.png" alt="">
+                </span>
+                <span>
+                    <img src="./img/avatar-3.png" alt="">
+                </span>
+            </div>
+            <div>
+                <span>
+                    <img src="./img/avatar-1.png" alt="">
+                </span>
+                <span>
+                    <img src="./img/avatar-2.png" alt="">
+                </span>
+                <span>
+                    <img src="./img/avatar-3.png" alt="">
+                </span>
+            </div>
+        </div>
+        <span id="nextBtn">NEXT</span>
+    </div>
+
+    <script>
+        let scrollContainer = document.querySelector(".gallery");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("nextBtn");
+
+
+        scrollContainer.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            scrollContainer.scrollLeft += e.deltaY;
+            scrollContainer.style.scrollBehavior = "auto";
+        });
+
+        nextBtn.addEventListener("click", () => {
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft += 250;
+        })
+
+        backBtn.addEventListener("click", () => {
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft -= 250;
+        })
+    </script>
+</body>
+</html>
